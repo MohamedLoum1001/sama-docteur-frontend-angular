@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <!-- Icone Retour -->
+    <a routerLink="/admin" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-arrow-left me-2"></i> Retour à l'Accueil
+    </a>
+
+    <h3>Validation des Médecins</h3>
+
+    <div *ngIf="medecinsEnAttente.length === 0" class="alert alert-info">
+        Aucun médecin en attente de validation.
+    </div>
+
+    <div *ngFor="let medecin of medecinsEnAttente" class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">{{ medecin.prenom }} {{ medecin.nom }}</h5>
+            <p class="card-text"><strong>Email :</strong> {{ medecin.email }}</p>
+            <p class="card-text"><strong>Téléphone :</strong> {{ medecin.telephone }}</p>
+            <p class="card-text"><strong>Spécialité :</strong> {{ medecin.specialite }}</p>
+            <div class="mt-3">
+                <button class="btn btn-success btn-sm me-2" (click)="valider(medecin.id)">Valider</button>
+                <button class="btn btn-danger btn-sm" (click)="rejeter(medecin.id)">Rejeter</button>
+            </div>
+        </div>
+    </div>
+</div>

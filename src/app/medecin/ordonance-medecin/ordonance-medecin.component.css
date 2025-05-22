@@ -1,0 +1,86 @@
+/* Styliser le conteneur */
+.container {
+    max-width: 700px;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+    background-color: #00a5a8;  /* ✅ Couleur de fond par défaut */
+    border: none;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0b89c4 !important;
+}
+.input-group:focus-within {
+    border: 2px solid #00a5a8;
+    border-radius: 50rem;
+    /* Pour arrondir toute la bordure */
+    box-shadow: 0 0 0 0.2rem rgba(0, 165, 168, 0.25);
+}
+
+.input-group .form-control,
+.input-group .form-select,
+.input-group .input-group-text {
+    border: 1px solid grey;
+    background-color: transparent;
+}
+
+
+.input-group .form-control:focus,
+.input-group .form-select:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Mise en valeur du titre */
+h3 {
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des champs de formulaire */
+.form-control-lg {
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* Bouton de soumission */
+.btn-success {
+    font-size: 1.2rem;
+    padding: 12px 35px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-success:hover {
+    background-color: #28a745;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success i {
+    margin-right: 8px;
+}
+
+/* Espacement entre les sections */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+/* Contenu centré */
+.text-center {
+    text-align: center;
+}

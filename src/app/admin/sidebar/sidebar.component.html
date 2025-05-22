@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <nav class="sidebar bg-dark text-white py-3" [ngClass]="{ 'd-none': !sidebarOpen }"
+            style="width: 200px; height: 100%">
+            <ul class="nav flex-column py-5 mt-4">
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/dashboard"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-tachometer-alt me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/users"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-users me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Utilisateurs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/validations"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-check-circle me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Validation</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/specialites"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-stethoscope me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Spécialités</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/paiements"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-credit-card me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Paiements</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/avis"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-comments me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Avis</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/plannings"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-calendar-check me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Plannings</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/notifications"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-bell me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Notifications</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/moderation"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-cogs me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Modération</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fs-6" routerLink="/add-users"
+                        (mouseenter)="sidebarOpen ? showText = true : null" (mouseleave)="showText = false">
+                        <i class="fas fa-user-plus me-2 text-white"></i>
+                        <span *ngIf="sidebarOpen || showText" class="menu-text">Ajout Users</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

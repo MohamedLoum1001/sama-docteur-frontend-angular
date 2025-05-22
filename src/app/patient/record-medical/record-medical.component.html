@@ -1,0 +1,45 @@
+<div class="container mt-2 py-1">
+    <!-- Bouton retour -->
+    <button class="btn custom-btn mb-2 d-flex align-items-center rounded-pill" (click)="homePatient()">
+        <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+
+    <h2 class="text-center mb-4">🩺 Consultation en ligne via vidéo</h2>
+
+    <div class="row g-4">
+        <!-- Vidéo utilisateur -->
+        <div class="col-md-6">
+            <div class="card shadow p-3 text-center">
+                <h5 class="mb-3">🎥 Votre vidéo</h5>
+                <video id="localVideo" autoplay playsinline class="video-frame"></video>
+            </div>
+        </div>
+
+        <!-- Vidéo médecin -->
+        <div class="col-md-6">
+            <div class="card shadow p-3 text-center">
+                <h5 class="mb-3">👨‍⚕️ Vidéo du médecin</h5>
+                <video id="remoteVideo" autoplay playsinline class="video-frame"></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boutons d'action -->
+    <div class="text-center mt-4">
+        <button *ngIf="!callStarted" class="btn custom-btn rounded-pill" (click)="startVideoCall()">
+            ▶️ Démarrer la consultation vidéo
+        </button>
+
+        <div *ngIf="callStarted" class="alert alert-success mt-3">
+            La consultation vidéo est en cours.
+        </div>
+
+        <button *ngIf="callStarted" class="btn btn-danger custom-danger mt-2 rounded-pill" (click)="stopVideoCall()">
+            ⛔ Arrêter la consultation vidéo
+        </button>
+
+        <div *ngIf="callError" class="alert alert-danger mt-3">
+            Une erreur est survenue lors de la mise en place de la consultation vidéo.
+        </div>
+    </div>
+</div>

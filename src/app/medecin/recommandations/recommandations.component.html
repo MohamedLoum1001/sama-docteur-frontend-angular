@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row ms-5 py-4">
+        <div class="mb-2">
+            <button class="btn btn-custom rounded-pill" routerLink="/home-medecin">
+                <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h4 class="text-center text-primary mb-4">📝 Recommandations médicales post-consultation</h4>
+
+    <div class="form-group mt-3">
+        <label for="recommandation" class="form-label">Message pour le patient :</label>
+        <textarea id="recommandation" class="form-control form-control-lg" rows="4" [(ngModel)]="recommandations"
+            placeholder="Ex: Pensez à bien vous hydrater et à surveiller votre tension."></textarea>
+    </div>
+
+    <div class="text-center mt-4">
+        <button class="btn btn-custom shadow-sm w-100" (click)="submitRecommandation()">
+            <i class="bi bi-send"></i> Envoyer la recommandation
+        </button>
+    </div>
+</div>
+
+<!-- Optional: Add Bootstrap icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">

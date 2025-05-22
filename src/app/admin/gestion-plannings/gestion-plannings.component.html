@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <!-- Icone Retour -->
+    <a routerLink="/admin" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-arrow-left me-2"></i> Retour à l'Accueil
+    </a>
+    <h3>🗓️ Gestion des Plannings des Médecins</h3>
+
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nom du Médecin</th>
+                    <th>Spécialité</th>
+                    <th>Jours Disponibles</th>
+                    <th>Heures</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let planning of plannings">
+                    <td>{{ planning.nom }}</td>
+                    <td>{{ planning.specialite }}</td>
+                    <td>{{ planning.jours.join(', ') }}</td>
+                    <td>{{ planning.heureDebut }} - {{ planning.heureFin }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary me-2"
+                            (click)="modifierPlanning(planning)">Modifier</button>
+                        <button class="btn btn-sm btn-danger"
+                            (click)="supprimerPlanning(planning.id)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button class="btn btn-success mt-3" (click)="ajouterPlanning()">Ajouter un Planning</button>
+</div>

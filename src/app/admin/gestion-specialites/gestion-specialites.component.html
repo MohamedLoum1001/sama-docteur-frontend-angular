@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <!-- Icone Retour -->
+    <a routerLink="/admin" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-arrow-left me-2"></i> Retour à l'Accueil
+    </a>
+    <h3>🩺 Gestion des Spécialités Médicales</h3>
+
+    <div class="mb-3 mt-4 d-flex">
+        <input type="text" class="form-control me-2" [(ngModel)]="nouvelleSpecialite"
+            placeholder="Nouvelle spécialité..." />
+        <button class="btn btn-success" (click)="ajouterSpecialite()">Ajouter</button>
+    </div>
+
+    <table class="table table-bordered table-hover mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nom de la spécialité</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let specialite of specialites; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td *ngIf="!specialite.edition">{{ specialite.nom }}</td>
+                <td *ngIf="specialite.edition">
+                    <input [(ngModel)]="specialite.nom" class="form-control" />
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-primary me-2" (click)="editerSpecialite(specialite)">
+                        {{ specialite.edition ? 'Enregistrer' : 'Modifier' }}
+                    </button>
+                    <button class="btn btn-sm btn-danger" (click)="supprimerSpecialite(i)">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

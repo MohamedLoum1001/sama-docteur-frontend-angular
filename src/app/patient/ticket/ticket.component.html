@@ -1,0 +1,55 @@
+<div class="container mt-5 py-2">
+    <!-- Bouton retour -->
+    <button class="btn custom-btn mb-0 d-flex align-items-center rounded-pill" (click)="homePatient()">
+        <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+
+    <h2 class="text-center mb-2">🎟️ Acheter et payer votre ticket</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow p-4 rounded-3">
+                <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
+                    <!-- Numéro de carte -->
+                    <div class="mb-1">
+                        <label for="cardNumber" class="form-label">Numéro de carte</label>
+                        <input type="text" id="cardNumber" class="form-control rounded-pill"
+                            placeholder="Entrez votre numéro de carte" [(ngModel)]="payment.cardNumber"
+                            name="cardNumber" required />
+                    </div>
+
+                    <!-- Date d'expiration -->
+                    <div class="mb-1">
+                        <label for="expiryDate" class="form-label">Date d'expiration</label>
+                        <input type="month" id="expiryDate" class="form-control rounded-pill" [(ngModel)]="payment.expiryDate"
+                            name="expiryDate" required />
+                    </div>
+
+                    <!-- CVV -->
+                    <div class="mb-1">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" id="cvv" class="form-control rounded-pill" placeholder="Entrez le code CVV"
+                            [(ngModel)]="payment.cvv" name="cvv" required />
+                    </div>
+
+                    <!-- Montant -->
+                    <div class="mb-1">
+                        <label for="amount" class="form-label">Montant à payer</label>
+                        <input type="text" id="amount" class="form-control rounded-pill" value="50" disabled />
+                    </div>
+
+                    <!-- Bouton de paiement -->
+                    <button class="btn custom-btn w-100 mt-3 rounded-pill" type="submit">💳 Payer</button>
+                </form>
+
+                <!-- Messages -->
+                <div *ngIf="paymentSuccess" class="alert alert-success mt-3">
+                    Le paiement a été effectué avec succès !
+                </div>
+                <div *ngIf="paymentError" class="alert alert-danger mt-3">
+                    Une erreur est survenue lors du paiement. Veuillez réessayer.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

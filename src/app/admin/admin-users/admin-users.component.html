@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <a routerLink="/admin" class="btn btn-outline-secondary mb-3">
+    <i class="fas fa-arrow-left me-2"></i> Retour à l'Accueil
+  </a>
+
+  <h3>Gestion des utilisateurs</h3>
+
+  <form [formGroup]="userForm" (ngSubmit)="ajouterUtilisateur()" class="row g-2 mb-3">
+    <div class="col-md-3">
+      <input formControlName="prenom" type="text" class="form-control" placeholder="Prénom" />
+    </div>
+    <div class="col-md-3">
+      <input formControlName="nom" type="text" class="form-control" placeholder="Nom" />
+    </div>
+    <div class="col-md-3">
+      <input formControlName="email" type="email" class="form-control" placeholder="Email" />
+    </div>
+    <div class="col-md-2">
+      <input formControlName="password" type="password" class="form-control" placeholder="Mot de passe" />
+    </div>
+    <div class="col-md-2">
+      <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirmer mot de passe" />
+    </div>
+    <div class="col-md-1">
+      <select formControlName="role" class="form-select">
+        <option value="ADMIN">Admin</option>
+        <option value="MEDECIN">Médecin</option>
+        <option value="PATIENT">Patient</option>
+      </select>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary w-100">Ajouter</button>
+    </div>
+  </form>
+
+  <input type="text" class="form-control my-3" placeholder="Rechercher..." [(ngModel)]="filtre" (input)="filtrer()" />
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Rôle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.prenom }}</td>
+        <td>{{ user.nom }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

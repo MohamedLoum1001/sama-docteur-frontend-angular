@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <!-- Bouton retour -->
+  <div class="mb-3">
+    <button class="btn custom-btn mb-4 d-flex align-items-center rounded-pill" (click)="homePatient()">
+      <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+  </div>
+
+  <h2 class="text-center mb-4">📁 Mon Dossier Médical</h2>
+  <!-- Consultations -->
+  <div>
+    <h4 class="text-custom">🩺 Consultations</h4>
+    <div *ngIf="dossier.consultations.length === 0" class="alert alert-info text-center">
+      Aucune consultation disponible.
+    </div>
+    <div *ngFor="let consultation of dossier.consultations" class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ consultation.type }}</h5>
+        <p class="card-text">📅 Date : {{ consultation.date }}</p>
+        <p class="card-text">{{ consultation.rapport }}</p>
+        <button class="btn custom-btn mt-2 rounded-pill w-25" (click)="downloadFichier('consultation-' + consultation.id + '.pdf')">
+          <i class="bi bi-download me-1"></i> Télécharger le rapport
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Examens -->
+  <div>
+    <h4 class="text-custom">🧪 Examens</h4>
+    <div *ngIf="dossier.examens.length === 0" class="alert alert-info text-center">
+      Aucune donnée d'examen disponible.
+    </div>
+    <div *ngFor="let examen of dossier.examens" class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ examen.type }}</h5>
+        <p class="card-text">📅 Date : {{ examen.date }}</p>
+        <p class="card-text">{{ examen.resultat }}</p>
+        <button class="btn custom-btn mt-2 rounded-pill w-25" (click)="downloadFichier('examen-' + examen.id + '.pdf')">
+          <i class="bi bi-download me-1"></i> Télécharger le résultat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Prescriptions -->
+  <div>
+    <h4 class="text-custom">💊 Prescriptions</h4>
+    <div *ngIf="dossier.prescriptions.length === 0" class="alert alert-info text-center">
+      Aucune prescription disponible.
+    </div>
+    <div *ngFor="let prescription of dossier.prescriptions" class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Médicament : {{ prescription.medicament }}</h5>
+        <p class="card-text">👨‍⚕️ Prescrit par : {{ prescription.medecin }}</p>
+        <p class="card-text">💊 Dosage : {{ prescription.dosage }}</p>
+      </div>
+    </div>
+  </div>
+</div>

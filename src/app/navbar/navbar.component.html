@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm px-4 py-2 fixed-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="'/'">
+      <h3 class="fs-5 fw-bold d-none d-sm-inline">Sama Docteur</h3>
+    </a>
+
+    <!-- Right Side Icons and Profile -->
+    <div class="ms-auto d-flex align-items-center">
+      <!-- Message Icon -->
+      <button class="btn btn-link position-relative me-3">
+        <i class="bi bi-chat-dots fs-5 text-dark"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          3
+        </span>
+      </button>
+
+      <!-- Notification Icon -->
+      <button class="btn btn-link position-relative me-3">
+        <i class="bi bi-bell fs-5 text-dark"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+          5
+        </span>
+      </button>
+
+      <!-- Profile picture -->
+      <img src="https://via.placeholder.com/40" class="rounded-circle me-3 border border-secondary"
+           style="width: 40px; height: 40px;" alt="Profile" />
+
+      <!-- Logout Button, visible uniquement si connecté -->
+      <button *ngIf="isLoggedIn()" class="btn btn-outline-danger btn-sm" (click)="logout()">
+        Déconnexion
+      </button>
+    </div>
+  </div>
+</nav>

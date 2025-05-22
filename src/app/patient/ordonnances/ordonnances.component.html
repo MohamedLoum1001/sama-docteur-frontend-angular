@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <!-- Bouton retour -->
+    <div class="mb-3">
+         <!-- Bouton retour -->
+    <button class="btn custom-btn mb-4 d-flex align-items-center rounded-pill" (click)="homePatient()">
+        <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+    </div>
+
+    <h2 class="text-center mb-4">🧾 Mes Ordonnances</h2>
+
+    <!-- Message si aucune ordonnance -->
+    <div *ngIf="ordonnances.length === 0" class="alert alert-info text-center">
+        Vous n'avez aucune ordonnance disponible pour le moment.
+    </div>
+
+    <!-- Liste des ordonnances -->
+    <div *ngFor="let ordonnance of ordonnances" class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title text-primary">
+                <i class="bi bi-file-earmark-medical me-2"></i> {{ ordonnance.nom }}
+            </h5>
+            <button class="btn custom-btn w-25 mt-3 rounded-pill text-white" (click)="downloadOrdonnance(ordonnance.fichier)">
+                <i class="bi bi-download me-1"></i> Télécharger l'ordonnance
+            </button>
+        </div>
+    </div>
+</div>

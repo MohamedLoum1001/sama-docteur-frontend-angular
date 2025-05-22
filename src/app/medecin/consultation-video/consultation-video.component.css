@@ -1,0 +1,64 @@
+/* Personalize the container and video box */
+.container {
+    max-width: 800px;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhance the video box */
+#jitsi-container {
+    background-color: #000;
+    height: 400px;
+    border-radius: 8px;
+}
+.btn-custom {
+    background-color: #00a5a8;  /* ✅ Couleur de fond par défaut */
+    border: none;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0b89c4 !important;
+}
+/* Customize the buttons */
+.btn-sm {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 25px;
+}
+
+.btn-outline-primary {
+    text-transform: uppercase;
+}
+
+.btn-danger {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+}
+
+.btn-danger:hover {
+    background-color: #e62412;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Add hover effect to the video box */
+#jitsi-container:hover {
+    border: 3px solid #007bff;
+}
+
+/* Add a shadow to the text */
+h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+}
+
+/* Style the buttons in the top-left section */
+.d-flex {
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}

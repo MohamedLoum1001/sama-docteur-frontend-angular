@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <!-- Bouton retour -->
+  <div class="mb-3">
+    <button routerLink="/home-patient" class="btn custom-btn d-flex align-items-center rounded-pill">
+      <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+  </div>
+
+  <h2 class="text-center text-custom mb-4">📝 Laisser un avis et une note sur le médecin</h2>
+
+  <form [formGroup]="avisForm" (ngSubmit)="onSubmit()" class="shadow-sm p-4 rounded bg-white">
+    <!-- Note -->
+    <div class="mb-3">
+      <label for="note" class="form-label fw-bold">Note (1 à 5)</label>
+      <input type="number" id="note" class="form-control" formControlName="note" min="1" max="5" />
+      <div *ngIf="f['note'].touched && f['note'].errors" class="text-danger mt-1 small">
+        <div *ngIf="f['note'].errors?.['required']">La note est obligatoire.</div>
+        <div *ngIf="f['note'].errors?.['min']">La note doit être au moins 1.</div>
+        <div *ngIf="f['note'].errors?.['max']">La note ne peut pas dépasser 5.</div>
+      </div>
+    </div>
+
+    <!-- Commentaire -->
+    <div class="mb-3">
+      <label for="commentaire" class="form-label fw-bold">Commentaire</label>
+      <textarea id="commentaire" class="form-control" formControlName="commentaire" rows="4"
+        placeholder="Partagez votre expérience..."></textarea>
+      <div *ngIf="f['commentaire'].touched && f['commentaire'].errors" class="text-danger mt-1 small">
+        <div *ngIf="f['commentaire'].errors?.['required']">Le commentaire est obligatoire.</div>
+        <div *ngIf="f['commentaire'].errors?.['minlength']">Minimum 5 caractères requis.</div>
+      </div>
+    </div>
+
+    <!-- Bouton d'envoi -->
+    <button type="submit" class="btn custom-btn w-100 rounded-pill" [disabled]="avisForm.invalid">
+      <i class="bi bi-send me-1"></i> Envoyer mon avis
+    </button>
+  </form>
+
+  <!-- Message de succès -->
+  <div *ngIf="avisSubmitted && !avisForm.invalid" class="alert alert-success mt-4 text-center">
+    ✅ Merci pour votre avis !
+  </div>
+</div>
+

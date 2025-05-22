@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container mt-5 py-5">
+  <h2 class="text-center mb-5 fw-bold text-primary">Bienvenue sur votre espace médecin 👨‍⚕️</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let card of cards">
+      <div class="card shadow-lg h-100 border-0 rounded-4">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title fs-5">{{ card.emoji }} {{ card.title }}</h5>
+            <p class="card-text">{{ card.description }}</p>
+          </div>
+          <button class="btn btn-custom mt-3 rounded-pill" [ngStyle]="{ 'background-color': card.color }"
+                  (click)="card.action ? card.action() : goTo(card.link)">
+            {{ card.button }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

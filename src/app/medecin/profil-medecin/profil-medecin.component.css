@@ -1,0 +1,35 @@
+.btn-custom {
+    background-color: #00a5a8;  /* ✅ Couleur de fond par défaut */
+    border: none;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0b89c4 !important;
+}
+input.form-control:focus,
+select.form-select:focus {
+    border-color: #0b89c4 !important;
+    box-shadow: 0 0 0 0.2rem rgba(11, 137, 196, 0.25);
+    outline: none;
+}
+
+/* Facultatif : effet au survol */
+input.form-control:hover,
+select.form-select:hover {
+    border-color: #0b89c4;
+}
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.btn-outline-danger {
+    border-width: 2px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+}

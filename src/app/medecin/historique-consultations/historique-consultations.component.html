@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <h3 class="mb-4">📋 Historique des consultations</h3>
+
+    <div class="card mb-3" *ngFor="let consultation of consultations">
+        <div class="card-body">
+            <h5 class="card-title">{{ consultation.patient }}</h5>
+            <p class="card-text">
+                <strong>Date :</strong> {{ consultation.date }}<br>
+                <strong>Diagnostic :</strong> {{ consultation.diagnostic }}<br>
+                <strong>Traitement :</strong> {{ consultation.traitement }}
+            </p>
+            <button class="btn btn-outline-info" (click)="afficherDossier(consultation)">
+                Voir le dossier médical
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <!-- Icone Retour -->
+    <a routerLink="/admin" class="btn btn-outline-secondary mb-3">
+        <i class="fas fa-arrow-left me-2"></i> Retour à l'Accueil
+    </a>
+    <h3>📝 Avis & Évaluations</h3>
+
+    <table class="table table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Rôle</th>
+                <th>Avis</th>
+                <th>Note</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let avis of avisList">
+                <td>{{ avis.nom }}</td>
+                <td>{{ avis.role }}</td>
+                <td>{{ avis.commentaire }}</td>
+                <td>{{ avis.note }} ⭐</td>
+                <td>{{ avis.date | date:'short' }}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm me-2" (click)="supprimerAvis(avis.id)">Supprimer</button>
+                    <button class="btn btn-warning btn-sm" (click)="modererAvis(avis.id)">Modérer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="avisList.length === 0" class="alert alert-info text-center">
+        Aucun avis pour le moment.
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="container mt-5 py-4">
+    <!-- Bouton retour -->
+    <div class="mb-4">
+        <button class="btn btn-custom rounded-pill" (click)="goBack()">
+            <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
+        </button>
+    </div>
+
+    <!-- Titre -->
+    <h2 class="text-center fw-bold text-primary mb-4">👨‍⚕️ Profil Médecin</h2>
+
+    <!-- Informations personnelles -->
+    <div class="card shadow-lg border-0 rounded-4 mb-5">
+        <div class="card-body">
+            <h5 class="card-title text-secondary fw-bold mb-3">📋 Informations personnelles</h5>
+
+            <!-- Formulaire de modification -->
+            <form [formGroup]="profilForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="nom" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Spécialité</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="specialite" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control rounded-pill" formControlName="email" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Téléphone</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="telephone" />
+                </div>
+
+                <button type="submit" class="btn btn-custom rounded-pill mt-2" [disabled]="profilForm.invalid">
+                    💾 Enregistrer les modifications
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Disponibilités -->
+    <div class="card shadow-lg border-0 rounded-4 mb-5">
+        <div class="card-body">
+            <h5 class="card-title text-secondary fw-bold mb-3">🗓️ Disponibilités</h5>
+
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>📅 Jour</th>
+                        <th>🕒 Heure Début</th>
+                        <th>🕒 Heure Fin</th>
+                        <th>🛠️ Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let horaire of medecin.horaires; let i = index">
+                        <td>{{ horaire.jour }}</td>
+                        <td>{{ horaire.heureDebut }}</td>
+                        <td>{{ horaire.heureFin }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger rounded-pill"
+                                (click)="supprimerHoraire(i)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h6 class="mt-4 fw-semibold">➕ Ajouter un nouvel horaire</h6>
+            <div class="row g-3 align-items-center mt-2">
+                <div class="col-md-3">
+                    <select class="form-select rounded-3" [(ngModel)]="nouveauHoraire.jour">
+                        <option value="" disabled selected>Jour</option>
+                        <option *ngFor="let jour of joursDisponibles" [value]="jour">{{ jour }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <input type="time" class="form-control rounded-3" [(ngModel)]="nouveauHoraire.heureDebut">
+                </div>
+                <div class="col-md-3">
+                    <input type="time" class="form-control rounded-3" [(ngModel)]="nouveauHoraire.heureFin">
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-custom mt-3 rounded-pill w-100" (click)="ajouterHoraire()">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

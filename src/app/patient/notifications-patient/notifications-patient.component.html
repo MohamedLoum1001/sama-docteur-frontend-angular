@@ -1,0 +1,34 @@
+<div class="container mt-5 py-4">
+    <!-- Bouton retour -->
+    <button class="btn custom-btn mb-4 d-flex align-items-center rounded-pill" (click)="homePatient()">
+        <i class="bi bi-arrow-left me-2"></i> Retour à l'accueil
+    </button>
+
+    <h2 class="text-center mb-4">🔔 Notifications</h2>
+
+    <div *ngIf="notifications?.length; else noNotifications">
+        <ul class="list-group shadow">
+            <li *ngFor="let notif of notifications"
+                class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="mb-1">{{ notif.titre }}</h6>
+                    <small class="text-muted">{{ notif.date | date:'short' }}</small>
+                </div>
+                <span class="badge" [ngClass]="{
+                  'bg-success': notif.type === 'success',
+                  'bg-warning': notif.type === 'warning',
+                  'bg-danger': notif.type === 'error',
+                  'bg-info': notif.type === 'info'
+                }">
+                    {{ notif.type | titlecase }}
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    <ng-template #noNotifications>
+        <div class="alert alert-info text-center mt-5">
+            😴 Vous n'avez aucune notification pour le moment.
+        </div>
+    </ng-template>
+</div>

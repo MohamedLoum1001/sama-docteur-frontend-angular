@@ -1,0 +1,45 @@
+<div class="container mt-5 py-4">
+    <!-- Bouton retour -->
+    <div class="mb-4">
+        <button class="btn btn-custom rounded-pill" routerLink="/home-medecin">
+            <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
+        </button>
+    </div>
+
+    <!-- Titre -->
+    <h2 class="text-center text-primary fw-bold mb-4">📅 Mes Rendez-vous Programmés</h2>
+
+    <!-- Tableau des rendez-vous -->
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+            <div class="table-responsive">
+                <table class="table align-middle table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>👤 Patient</th>
+                            <th>🗓️ Date & Heure</th>
+                            <th>📝 Motif</th>
+                            <th>📌 Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let rdv of rendezVousList">
+                            <td>{{ rdv.patient }}</td>
+                            <td>{{ formatDate(rdv.date) }}</td>
+                            <td>{{ rdv.motif }}</td>
+                            <td>
+                                <span class="badge rounded-pill px-3 py-2" [ngClass]="{
+                                        'bg-success': rdv.statut === 'Confirmé',
+                                        'bg-warning text-dark': rdv.statut === 'En attente',
+                                        'bg-secondary': rdv.statut !== 'Confirmé' && rdv.statut !== 'En attente'
+                                    }">
+                                    {{ rdv.statut }}
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-2">
+    <!-- Bouton retour -->
+    <div class="mb-2">
+        <button class="btn btn-custom rounded-pill" routerLink="/home-medecin">
+            <i class="bi bi-arrow-left me-2"></i>Retour à l'accueil
+        </button>
+    </div>
+    <h3 class="text-center text-primary mb-3">📄 Prescrire une ordonnance électronique</h3>
+    <form [formGroup]="ordonnanceForm" (ngSubmit)="envoyerOrdonnance()">
+        <div class="mb-0">
+            <label class="form-label">Nom du patient</label>
+            <input type="text" class="form-control form-control rounded-pill" formControlName="patientName" placeholder="Entrez le nom du patient">
+        </div>
+
+        <div class="mb-0">
+            <label class="form-label">Médicaments prescrits</label>
+            <textarea class="form-control form-control" rows="4" formControlName="medicaments" placeholder="Liste des médicaments prescrits"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Instructions</label>
+            <textarea class="form-control form-control" rows="3" formControlName="instructions" placeholder="Instructions supplémentaires"></textarea>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-custom w-100 shadow-sm">
+                <i class="bi bi-send"></i> Envoyer l’ordonnance
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Optional: Add Bootstrap icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
