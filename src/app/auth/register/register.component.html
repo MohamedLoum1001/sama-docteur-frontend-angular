@@ -5,7 +5,7 @@
         <h3 class="mt-2 fw-bold text-primary">Inscription</h3>
       </div>
       <div class="card shadow-lg p-4 border-0 rounded-4">
-        <form [formGroup]="registerForm" (ngSubmit)="submit()">
+        <form>
 
           <!-- Prénom et Nom -->
           <div class="row">
@@ -16,12 +16,7 @@
                   <i class="fa fa-user"></i>
                 </span>
                 <input type="text" class="form-control border-start-0 rounded-end-pill px-2 py-2"
-                  formControlName="prenom" placeholder="Entrez votre prénom" required />
-              </div>
-              <div
-                *ngIf="registerForm.get('prenom')?.invalid && (registerForm.get('prenom')?.touched || registerForm.get('prenom')?.dirty)"
-                class="text-danger">
-                Le prénom est requis.
+                  placeholder="Entrez votre prénom" />
               </div>
             </div>
             <div class="mb-1 col-md-6">
@@ -30,13 +25,8 @@
                 <span class="input-group-text bg-white border-start-0 rounded-start-pill">
                   <i class="fa fa-user"></i>
                 </span>
-                <input type="text" class="form-control border-start-0 rounded-end-pill px-2 py-2" formControlName="nom"
-                  placeholder="Entrez votre nom" required />
-              </div>
-              <div
-                *ngIf="registerForm.get('nom')?.invalid && (registerForm.get('nom')?.touched || registerForm.get('nom')?.dirty)"
-                class="text-danger">
-                Le nom est requis.
+                <input type="text" class="form-control border-start-0 rounded-end-pill px-2 py-2"
+                  placeholder="Entrez votre nom" />
               </div>
             </div>
           </div>
@@ -50,12 +40,7 @@
                   <i class="fa fa-envelope"></i>
                 </span>
                 <input type="email" class="form-control border-start-0 rounded-end-pill px-2 py-2"
-                  formControlName="email" placeholder="Entrez votre email" required />
-              </div>
-              <div
-                *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.touched || registerForm.get('email')?.dirty)"
-                class="text-danger">
-                Email invalide ou requis.
+                  placeholder="Entrez votre email" />
               </div>
             </div>
             <div class="mb-1 col-md-6">
@@ -65,12 +50,7 @@
                   <i class="fa fa-map-marker-alt"></i>
                 </span>
                 <input type="text" class="form-control border-start-0 rounded-end-pill px-2 py-2"
-                  formControlName="adresse" placeholder="Entrez votre adresse" required />
-              </div>
-              <div
-                *ngIf="registerForm.get('adresse')?.invalid && (registerForm.get('adresse')?.touched || registerForm.get('adresse')?.dirty)"
-                class="text-danger">
-                L'adresse est requise.
+                  placeholder="Entrez votre adresse" />
               </div>
             </div>
           </div>
@@ -84,12 +64,7 @@
                   <i class="fa fa-phone"></i>
                 </span>
                 <input type="text" class="form-control border-start-0 rounded-end-pill px-2 py-2"
-                  formControlName="telephone" placeholder="Entrez votre téléphone" required />
-              </div>
-              <div
-                *ngIf="registerForm.get('telephone')?.invalid && (registerForm.get('telephone')?.touched || registerForm.get('telephone')?.dirty)"
-                class="text-danger">
-                Le téléphone est requis.
+                  placeholder="Entrez votre téléphone" />
               </div>
             </div>
             <div class="mb-1 col-md-6">
@@ -98,27 +73,13 @@
                 <span class="input-group-text bg-white border-start-0 rounded-start-pill">
                   <i class="fa fa-id-badge"></i>
                 </span>
-                <select class="form-select border-start-0 rounded-end-pill px-2 py-2" formControlName="role" required>
+                <select class="form-select border-start-0 rounded-end-pill px-2 py-2">
                   <option value="">Sélectionnez un rôle</option>
                   <option value="PATIENT">PATIENT</option>
                   <option value="ADMIN">ADMIN</option>
                   <option value="MEDECIN">MEDECIN</option>
                 </select>
               </div>
-              <div
-                *ngIf="registerForm.get('role')?.invalid && (registerForm.get('role')?.touched || registerForm.get('role')?.dirty)"
-                class="text-danger">
-                Le rôle est requis.
-              </div>
-            </div>
-          </div>
-
-          <!-- Spécialité (visible uniquement si rôle = MEDECIN) -->
-          <div *ngIf="isMedecin" class="mb-3">
-            <label for="specialite" class="form-label">Spécialité</label>
-            <input id="specialite" type="text" class="form-control" formControlName="specialite" placeholder="Ex : Cardiologue, Pédiatre..." />
-            <div *ngIf="registerForm.get('specialite')?.invalid && (registerForm.get('specialite')?.touched || registerForm.get('specialite')?.dirty)" class="text-danger">
-              La spécialité est requise.
             </div>
           </div>
 
@@ -130,17 +91,7 @@
                 <span class="input-group-text bg-white border-end-0 rounded-start-pill">
                   <i class="fa fa-lock"></i>
                 </span>
-                <input [type]="showPassword ? 'text' : 'password'" class="form-control border-end-0 px-3 py-2"
-                  formControlName="password" placeholder="Mot de passe" required />
-                <span class="input-group-text bg-white border-start-0 rounded-end-pill" style="cursor: pointer"
-                  (click)="togglePasswordVisibility()">
-                  <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
-                </span>
-              </div>
-              <div
-                *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.dirty)"
-                class="text-danger">
-                Le mot de passe est requis (6 caractères minimum).
+                <input type="password" class="form-control border-end-0 px-3 py-2" placeholder="Mot de passe" />
               </div>
             </div>
             <div class="mb-3 col-md-6">
@@ -149,33 +100,20 @@
                 <span class="input-group-text bg-white border-end-0 rounded-start-pill">
                   <i class="fa fa-lock"></i>
                 </span>
-                <input [type]="showPassword ? 'text' : 'password'" class="form-control border-end-0 px-3 py-2"
-                  formControlName="confirmPassword" placeholder="Confirmer le mot de passe" required />
-                <span class="input-group-text bg-white border-start-0 rounded-end-pill" style="cursor: pointer"
-                  (click)="togglePasswordVisibility()">
-                  <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
-                </span>
-              </div>
-
-              <div
-                *ngIf="registerForm.get('confirmPassword')?.errors?.['required'] && (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)"
-                class="text-danger mt-1">
-                La confirmation du mot de passe est requise.
-              </div>
-
-              <div
-                *ngIf="registerForm.errors?.['passwordsMismatch'] && (registerForm.get('confirmPassword')?.touched || registerForm.get('confirmPassword')?.dirty)"
-                class="text-danger mt-1">
-                Les mots de passe ne correspondent pas.
+                <input type="password" class="form-control border-end-0 px-3 py-2"
+                  placeholder="Confirmer le mot de passe" />
               </div>
             </div>
           </div>
 
+          <!-- Bouton S'inscrire -->
           <button type="submit" class="btn w-100 mb-3 rounded-pill text-white" style="background-color: #00a5a8;">
             S'inscrire
           </button>
 
-          <button type="button" (click)="loginData()" class="btn w-100 rounded-pill text-white" style="background-color: #0b89c4">
+          <!-- Bouton Se connecter avec navigation -->
+          <button type="button" (click)="loginData()" class="btn w-100 rounded-pill text-white"
+            style="background-color: #0b89c4">
             Se connecter
           </button>
         </form>
